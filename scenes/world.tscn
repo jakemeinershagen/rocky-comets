@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://c3o6yrhlucygs"]
+[gd_scene load_steps=2 format=3 uid="uid://c3o6yrhlucygs"]
+
+[ext_resource type="PackedScene" uid="uid://bgfel2gviijwi" path="res://scenes/ship.tscn" id="1_rtll7"]
 
 [node name="World" type="Node2D"]
 
 [node name="Background" type="CanvasLayer" parent="."]
+layer = -10
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
 anchors_preset = 15
@@ -11,3 +14,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_rtll7")]
+position = Vector2(280, 272)
