@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=700
 window/size/viewport_height=525
+window/stretch/mode="viewport"
 
 [input]
 
@@ -51,6 +52,7 @@ right={
 
 2d_physics/layer_1="ship"
 2d_physics/layer_2="asteroids"
+2d_physics/layer_3="bullets"
 
 [rendering]
 
