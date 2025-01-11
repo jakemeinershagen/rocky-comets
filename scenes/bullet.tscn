@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cenqwecwququd"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_anpfq"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_n5txa"]
+a = Vector2(2, 0)
+b = Vector2(-2, 0)
+
+[node name="Bullet" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_anpfq")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(0.5, 0)
+points = PackedVector2Array(1.5, 0, -2.5, 0)
+width = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_n5txa")
