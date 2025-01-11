@@ -7,6 +7,7 @@ var direction = Vector2.RIGHT
 
 func _physics_process(delta: float) -> void:
 	velocity = SPEED * direction * delta
+	rotation = velocity.angle()
 
 	position.x = wrapf(position.x, 0, screen_size.x)
 	position.y = wrapf(position.y, 0, screen_size.y)
