@@ -7,9 +7,11 @@ var MAX_SPEED = 100
 var ROTATION_SPEED = 90
 
 @onready var screen_size = get_viewport_rect().size
+@onready var shot_cooldown = $ShotCooldown
+@onready var bullet_spawn_point = $BulletSpawnPoint
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_pressed("fire") and shot_cooldown.is_stopped():
 		fire_bullet()
 
 func _physics_process(delta: float) -> void:
@@ -25,11 +27,21 @@ func _physics_process(delta: float) -> void:
 	position.x = wrapf(position.x, 0, screen_size.x)
 	position.y = wrapf(position.y, 0, screen_size.y)
 	
-	move_and_collide(velocity * delta)
+	if Input.is_action_pressed("down"):
+		velocity -= velocity.normalized() * ACCEL * delta
+	
+	var collision = move_and_collide(velocity * delta)
+
+	if collision:
+		var coll_body = collision.get_collider()
+		if coll_body is Bullet:
+			print("ded")
+			coll_body.queue_free()
 
 
 func fire_bullet():
 	var new_bullet = bullet_scene.instantiate()
-	new_bullet.position = position
+	new_bullet.position = bullet_spawn_point.global_position
 	new_bullet.direction = -transform.y
 	get_parent().add_child(new_bullet)
+	shot_cooldown.start()

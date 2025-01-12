@@ -6,10 +6,12 @@ Started 1/10/2025
 
 Todo:
 
-- bullet rotation when spawned
-- bullet deletetion after time
-- shot cooldown
-- player dies if hit with own bullet
 
 
 MVP:
+
+Create three sizes of asteroids.
+	Asteroids will break into smaller asteroids when shot (The smallest will disappear when shot).
+	Asteroids will drift around until they are shot or they collide with the player. If the player collides with an asteroid, they will lose a life.
+Add menus and UI.
+Add sound effects and particle effects.

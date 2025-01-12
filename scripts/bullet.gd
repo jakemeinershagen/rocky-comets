@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Bullet
 
 var SPEED = 200
 var direction = Vector2.RIGHT
@@ -13,3 +14,7 @@ func _physics_process(delta: float) -> void:
 	position.y = wrapf(position.y, 0, screen_size.y)
 
 	move_and_collide(velocity)
+
+
+func _on_timer_timeout() -> void:
+	queue_free()
