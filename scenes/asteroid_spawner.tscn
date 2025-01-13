@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cinexmnanudpp"]
+
+[ext_resource type="Script" path="res://scripts/asteroid_spawner.gd" id="1_ywyob"]
+[ext_resource type="PackedScene" uid="uid://djnv4ufrhmmvk" path="res://scenes/asteroid.tscn" id="2_hxccg"]
+
+[node name="AsteroidSpawner" type="Node2D"]
+script = ExtResource("1_ywyob")
+asteroid_scn = ExtResource("2_hxccg")

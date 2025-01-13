@@ -35,7 +35,6 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		var coll_body = collision.get_collider()
 		if coll_body is Bullet:
-			print("ded")
 			coll_body.queue_free()
 
 
@@ -45,3 +44,7 @@ func fire_bullet():
 	new_bullet.direction = -transform.y
 	get_parent().add_child(new_bullet)
 	shot_cooldown.start()
+
+
+func die():
+	print("ded")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://djnv4ufrhmmvk"]
+
+[ext_resource type="Script" path="res://scripts/asteroid.gd" id="1_5l0bs"]
+
+[node name="Asteroid" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_5l0bs")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-40, -7, -31, -42, 0, -40, 32, -32, 41, -8, 37, 24, 20, 30, -1, 32, -30, 26, -41, 1)
+closed = true
+width = 3.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-40, -7, -31, -42, 0, -40, 32, -32, 41, -8, 37, 24, 20, 30, -1, 32, -30, 26, -41, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-40, -7, -31, -42, 0, -40, 32, -32, 41, -8, 37, 24, 20, 30, -1, 32, -30, 26, -41, 1)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
