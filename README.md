@@ -12,3 +12,7 @@ MVP:
 
 Add menus and UI.
 Add sound effects and particle effects.
+
+Ideas:
+
+Powerups - gatling gun, nuke, laser, better accel
