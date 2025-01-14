@@ -16,7 +16,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_rtll7")]
+[node name="Ship" parent="." instance=ExtResource("1_rtll7")]
 position = Vector2(280, 272)
 
-[node name="AsteroidSpawner" parent="." instance=ExtResource("2_y3bhf")]
+[node name="AsteroidSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_y3bhf")]
+player = NodePath("../Ship")

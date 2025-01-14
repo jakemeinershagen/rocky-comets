@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Asteroid
 
 var speed = 100
 
@@ -23,4 +24,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		body.queue_free()
 		queue_free()
 		if scale.x > .26:
-			get_parent().spawn_split(position, scale * .5, speed + 20)
+			get_parent().spawn_split(position, scale * .5, speed * 1.5)

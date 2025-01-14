@@ -9,6 +9,7 @@ var ROTATION_SPEED = 90
 @onready var screen_size = get_viewport_rect().size
 @onready var shot_cooldown = $ShotCooldown
 @onready var bullet_spawn_point = $BulletSpawnPoint
+@onready var starting_pos = position
 
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("fire") and shot_cooldown.is_stopped():
@@ -36,6 +37,9 @@ func _physics_process(delta: float) -> void:
 		var coll_body = collision.get_collider()
 		if coll_body is Bullet:
 			coll_body.queue_free()
+			die()
+		elif coll_body is Asteroid:
+			die()
 
 
 func fire_bullet():
@@ -47,4 +51,6 @@ func fire_bullet():
 
 
 func die():
-	print("ded")
+	position = starting_pos
+	velocity = Vector2.ZERO
+	rotation = 0
