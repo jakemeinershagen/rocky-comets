@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3o6yrhlucygs"]
+[gd_scene load_steps=5 format=3 uid="uid://c3o6yrhlucygs"]
 
 [ext_resource type="PackedScene" uid="uid://bgfel2gviijwi" path="res://scenes/ship.tscn" id="1_rtll7"]
 [ext_resource type="PackedScene" uid="uid://cinexmnanudpp" path="res://scenes/asteroid_spawner.tscn" id="2_y3bhf"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="3_scmx0"]
+[ext_resource type="PackedScene" uid="uid://cgruxrxkffdhj" path="res://scenes/result_ui.tscn" id="4_lcqpt"]
 
 [node name="World" type="Node2D"]
 
@@ -21,3 +23,27 @@ position = Vector2(280, 272)
 
 [node name="AsteroidSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_y3bhf")]
 player = NodePath("../Ship")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_scmx0")
+
+[node name="Label" type="Label" parent="UI/HUD"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 48.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 14
+text = "Score: 0
+Lives: 3"
+
+[node name="ResultUI" parent="UI" instance=ExtResource("4_lcqpt")]
+process_mode = 3

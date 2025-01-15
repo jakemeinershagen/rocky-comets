@@ -54,3 +54,4 @@ func die():
 	position = starting_pos
 	velocity = Vector2.ZERO
 	rotation = 0
+	Shared.lives -= 1

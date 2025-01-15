@@ -23,5 +23,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Bullet:
 		body.queue_free()
 		queue_free()
+		Shared.score += 1
 		if scale.x > .26:
 			get_parent().spawn_split(position, scale * .5, speed * 1.5)
