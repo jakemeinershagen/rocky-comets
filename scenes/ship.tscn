@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgfel2gviijwi"]
+[gd_scene load_steps=5 format=3 uid="uid://bgfel2gviijwi"]
 
 [ext_resource type="Script" path="res://scripts/ship.gd" id="1_hkqyn"]
 [ext_resource type="PackedScene" uid="uid://cenqwecwququd" path="res://scenes/bullet.tscn" id="2_wfvxd"]
+[ext_resource type="AudioStream" uid="uid://bnmcqhl7jht4w" path="res://assets/sfx_exp_short_hard6.wav" id="3_8rvkq"]
+[ext_resource type="AudioStream" uid="uid://brk3nne8wc4bm" path="res://assets/sfx_wpn_laser8.wav" id="4_17kop"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("shot_sound")]
 collision_mask = 6
 script = ExtResource("1_hkqyn")
 bullet_scene = ExtResource("2_wfvxd")
+shot_sound = NodePath("ShotSound")
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(-5, 7, 0, -10, 5, 7, 0, 4)
@@ -22,3 +25,10 @@ one_shot = true
 
 [node name="BulletSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(0, -15)
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("3_8rvkq")
+
+[node name="ShotSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_17kop")

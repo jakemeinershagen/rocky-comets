@@ -10,7 +10,6 @@ Todo:
 
 MVP:
 
-Add menus and UI.
 Add sound effects and particle effects.
 
 Ideas:

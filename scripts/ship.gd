@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var bullet_scene: PackedScene
+@export var shot_sound: AudioStreamPlayer2D
 
 var ACCEL = 40
 var MAX_SPEED = 100
@@ -48,6 +49,7 @@ func fire_bullet():
 	new_bullet.direction = -transform.y
 	get_parent().add_child(new_bullet)
 	shot_cooldown.start()
+	shot_sound.play()
 
 
 func die():
@@ -55,3 +57,4 @@ func die():
 	velocity = Vector2.ZERO
 	rotation = 0
 	Shared.lives -= 1
+	$ExplosionSound.play()
