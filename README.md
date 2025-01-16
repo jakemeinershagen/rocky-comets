@@ -10,8 +10,6 @@ Todo:
 
 MVP:
 
-Add sound effects and particle effects.
-
 Ideas:
 
 Powerups - gatling gun, nuke, laser, better accel
